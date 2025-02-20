@@ -26,9 +26,10 @@ export default function Forms({onAddItems}) {
 
     return (
       <div className='form-section'>
-        <form className='add-form container mx-auto md:flex-nowrap flex-wrap' onSubmit={handleSubmit}>
+        <form className='add-form container mx-auto md:flex-row flex-col' onSubmit={handleSubmit}>
           <h3 className='md:w-auto w-full md:m-7 m-0 md:text-left text-center'>What do you need for your 😍 trip?</h3>
           <select
+            className='md:w-auto w-full'
             value={quantity}
             onChange={(e) => setQuantity(Number(e.target.value))}
           >
@@ -39,12 +40,13 @@ export default function Forms({onAddItems}) {
             ))}
           </select>
           <input
+            className='md:w-auto w-full'
             type='text'
             placeholder='Item..'
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-          <button>Add</button>
+          <button className='md:w-auto w-full'>Add</button>
         </form>
       </div>
     );
