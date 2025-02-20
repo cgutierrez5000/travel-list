@@ -16,20 +16,24 @@ export default function PackingList({ items, onDeleteItem, onToggleItem, onClear
 
 
     return (
-      <div className='list'>
-        <ul>
-          {sortedItems.map((item) => (
-            <Item item={item} key={item.id} onDeleteItem={onDeleteItem} onToggleItem={onToggleItem} />
-          ))}
-        </ul>
-        <div className='actions'>
-          <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-            <option value='input'>Sort by input order</option>
-            <option value='description'>Sort by description</option>
-            <option value='packed'>Sort by packed status</option>
-          </select>
-          <button onClick={onClearList}>Clear list</button>
+        <div className='list'>
+          <div className='items-list'>
+            <ul className='container mx-auto'>
+              {sortedItems.map((item) => (
+                <Item item={item} key={item.id} onDeleteItem={onDeleteItem} onToggleItem={onToggleItem} />
+              ))}
+            </ul>
+          </div>
+          <div className='actions'>
+            <div className='action-inner container mx-auto'>
+              <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+                <option value='input'>Sort by input order</option>
+                <option value='description'>Sort by description</option>
+                <option value='packed'>Sort by packed status</option>
+              </select>
+              <button onClick={onClearList}>Clear list</button>
+            </div>
+          </div>
         </div>
-      </div>
     );
   }
